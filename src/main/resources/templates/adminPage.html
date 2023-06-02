@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org%22%3E/">
+    <div th:replace="~{/fragments/commons :: head}"></div>
+    <title>
+        AdminPage
+    </title>
+<body>
+    <div th:if="${param.mensagem}" class="alert alert-success">
+        <span th:text="${param.mensagem}"></span>
+    </div>
+    <div th:replace="~{/fragments/commons :: NavigationAdmin}"></div>
+    <div th:replace="~{/fragments/commons :: headerAdmin}"></div>
+    <div th:replace="~{/fragments/commons :: sectionAdmin}"></div>
+    <div th:replace="~{/fragments/commons :: footer}"></div>
+    <div th:replace="~{/fragments/commons :: script}"></div>
+</body>
+</html>

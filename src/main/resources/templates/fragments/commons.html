@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+<nav th:fragment="NavigationIndex" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand">TADS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/verCarrinho">Ver Carrinho</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/adminPage">AdminPage</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/logout">Logout</a></li>
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit"> 
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill" th:text="${quantidadeCarrinho}"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<nav th:fragment="NavigationCadastro" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">Cadastro de camisas</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/adminPage">Página Adm</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<nav th:fragment="NavigationAdmin" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">Bem vindo, Admin!!</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/cadastrarPage">Cadastrar Camisa</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<nav th:fragment="NavigationCarrinho" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">Bem vindo, User!!</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Inicio</a></li>
+                <a class="nav-link active1" aria-current="page" th:href="@{'/finalizarCompra'}">Finalizar Compra</a>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<nav th:fragment="NavigationEditar" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">Editar Camisa</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Inicio</a></li>            
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header th:fragment="headerEditar">
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">EDIÇÃO</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Sofrimento by taniro</p>
+            </div>
+        </div>
+    </header>
+</header>
+
+<header th:fragment="headerIndex">
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Loja de Camisas</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Sofrimento by taniro</p>
+            </div>
+        </div>
+    </header>
+</header>
+
+<header th:fragment="headerCadastro">
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Cadastro de Camisas</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Sofrimento by taniro</p>
+            </div>
+        </div>
+    </header>
+</header>
+
+<header th:fragment="headerAdmin">
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Página ADMIN</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Sofrimento by taniro</p>
+            </div>
+        </div>
+    </header>
+</header>
+
+<header th:fragment="headerCarrinho">
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Bem vindo ao seu carrinho!!</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Sofrimento by taniro</p>
+            </div>
+        </div>
+    </header>
+</header>
+
+
+<section th:fragment="sectionIndex">
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-left">
+                <div class="col mb-5" th:each="camisa: ${camisaList}" th:if="${camisa.softDelete == null}">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" th:src="@{'/images/img-upload'+*{camisa.imageURI}}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder" th:text="${'R$'+camisa.preco}"></h5>
+                                <!-- Product price-->
+                                <div class="alinhar">
+                                    <p th:text="${camisa.tipo}"></p>
+                                    <p th:text="${'Tamanho: '+camisa.tamanho}"></p>
+                                    <p th:text="${'Cor: '+camisa.cor}"></p>
+                                </div>
+                                    <td>
+                                        <a class="nav-link active1" aria-current="page" th:href="@{'adicionarCarrinho/'+${camisa.id}}">Adicionar ao carrinho</a> 
+                                    </td>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section th:fragment="sectionAdmin">
+   <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-left">
+                <div class="col mb-5" th:each="camisa: ${camisaList}" th:if="${camisa.softDelete == null}">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" th:src="@{'/images/img-upload'+*{camisa.imageURI}}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder" th:text="${'R$'+camisa.preco}"></h5>
+                                <!-- Product price-->
+                                <div class="alinhar">
+                                    <p th:text="${camisa.tipo}"></p>
+                                    <p th:text="${'Tamanho: '+camisa.tamanho}"></p>
+                                    <p th:text="${'Cor: '+camisa.cor}"></p>
+                                </div>
+                                    <td>
+                                        <a class="nav-link active1" aria-current="page" th:href="@{'deletar/'+${camisa.id}}">Deletar <span class="delete-icon">&#128465;</span></a> 
+                                        <p>                                                                                                                                        </p>
+                                        <a class="nav-link active1" aria-current="page"th:href="@{'editarPage/'+${camisa.id}}">Editar<span class="edit-icon">&#9998;</span></a> 
+                                    </td>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section th:fragment="sectionEditar">
+    <section class="py-5">
+         <div class="container px-4 px-lg-5 mt-5">
+             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-left">
+                 <div class="col mb-5" th:object="${camisa}">
+                     <div class="card h-100">
+                        <div class="text-center">
+                            <input type="hidden" th:field="*{id}" />
+                            <!-- Tamanho-->
+                            <label>Tamanho:</label>
+                                <input type="radio" th:field="*{tamanho}" value="P"> P
+                                <input type="radio" th:field="*{tamanho}" value="M"> M
+                                <input type="radio" th:field="*{tamanho}" value="G"> G
+                                <p th:if="${#fields.hasErrors('tamanho')}" th:errors="*{tamanho}"></p>
+                                
+                            <!-- Tipo-->
+                            <div class="alinhar">
+                                <label>Tipo:</label> 
+                                    <input type="radio" th:field="*{tipo}" value="Feminino"> Feminino
+                                    <input type="radio" th:field="*{tipo}" value="Masculino"> Masculino
+                                    <p th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}"></p>
+                                    <br />
+                            </div>
+
+                            <div class="alinhar">
+                                <label>Cor:</label>
+                                <select th:field="*{cor}">
+                                    <option value="Azul">Azul</option>
+                                    <option value="Branco">Branco</option>
+                                    <option value="Preto">Preto</option>
+                                    <option value="Amarelo">Amarelo</option>
+                                    <option value="Laranja">Laranja</option>
+                                </select>
+                                <p th:if="${#fields.hasErrors('cor')}" th:errors="*{cor}"></p>
+                                <br><br>
+                            </div>
+                            <div class="alinhar">
+                                <label>Preço:</label>
+                                <input type="text" th:field="*{preco}">
+                                <p th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></p>
+                                <br><br>
+                            </div>
+                            <div>
+                                <td>
+                                    <label>Imagem: </label>
+                                    <input type="file" name="file">
+                                </td>
+                            </div>
+                                <td>
+                                    <button class="nav-link active1" type="submit">Salvar</button> 
+                                </td>
+                        </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+ </section>
+
+<section th:fragment="sectionCadastro">
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-left">
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <input type="file" name="file">
+                        <!-- Product image-->
+                        <!-- <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." /> -->
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Tamanho-->
+                                <label>Tamanho:</label>
+                                    <input type="radio" th:field="*{tamanho}" value="P"> P
+                                    <input type="radio" th:field="*{tamanho}" value="M"> M
+                                    <input type="radio" th:field="*{tamanho}" value="G"> G
+                                    <p th:if="${#fields.hasErrors('tamanho')}" th:errors="*{tamanho}"></p>
+                                    
+                                <!-- Tipo-->
+                                <div class="alinhar">
+                                    <label>Tipo:</label> 
+                                        <input type="radio" th:field="*{tipo}" value="Feminino"> Feminino
+                                        <input type="radio" th:field="*{tipo}" value="Masculino"> Masculino
+                                        <p th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}"></p>
+                                        <br />
+                                </div>
+
+                                <div class="alinhar">
+                                    <label>Cor:</label>
+                                    <select th:field="*{cor}">
+                                        <option value="Azul">Azul</option>
+                                        <option value="Branco">Branco</option>
+                                        <option value="Preto">Preto</option>
+                                        <option value="Amarelo">Amarelo</option>
+                                        <option value="Laranja">Laranja</option>
+                                    </select>
+                                    <p th:if="${#fields.hasErrors('cor')}" th:errors="*{cor}"></p>
+                                    <br><br>
+                                </div> 
+                                <div class="alinhar">
+                                    <label>Preço: </label>
+                                    <input type="text" th:field="*{preco}">
+                                    <p th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></p>
+                                    <br><br>
+                                </div>
+                                <div>
+                                    <td>
+                                        <button class="nav-link active1" type="submit">Cadastrar</button> 
+                                    </td>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section th:fragment="sectionCarrinho">
+    <section class="py-5">
+         <div class="container px-4 px-lg-5 mt-5">
+             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-left">
+                 <div class="col mb-5" th:each="camisa: ${carrinho}">
+                     <div class="card h-100">
+                         <!-- Product image-->
+                         <img class="card-img-top" th:src="@{'/images/img-upload'+*{camisa.imageURI}}" alt="..." />
+                         <!-- Product details-->
+                         <div class="card-body p-4">
+                             <div class="text-center">
+                                 <!-- Product name-->
+                                 <h5 class="fw-bolder" th:text="${'R$'+camisa.preco}"></h5>
+                                 <!-- Product price-->
+                                 <div class="alinhar">
+                                     <p th:text="${camisa.tipo}"></p>
+                                     <p th:text="${'Tamanho: '+camisa.tamanho}"></p>
+                                     <p th:text="${'Cor: '+camisa.cor}"></p>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+ </section>
+
+<footer th:fragment="footer">
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
+            <p class="m-0 text-center text-white">Giovanna Oliveira e João Victor Gomes Meneses</p>
+        </div>
+    </footer>
+</footer>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="/src/main/resources/static/js/scripts.js"></script>
+
+</body>
+</html>
