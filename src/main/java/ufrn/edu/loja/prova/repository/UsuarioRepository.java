@@ -5,6 +5,6 @@ import ufrn.edu.loja.prova.model.UsuarioModel;
 
 import java.util.Optional;
 
-public interface UsuarioRepository extends JpaRepository<UsuarioModel, String> {
+public interface UsuarioRepository extends JpaRepository<UsuarioModel, Long> {
     Optional<UsuarioModel> findByUsername(String username);
 }
