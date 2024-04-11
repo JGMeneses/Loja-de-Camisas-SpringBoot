@@ -88,9 +88,6 @@ Um usuário admin e dois usuários padrão.
 ##  Cadastro:
 <img src="./src/imgs/cadastro1.png" alt="Minha Imagem">
 
-## Edição:
-<img src="./src/imgs/edicao.png" alt="Minha Imagem">
-
 ## Login:
 <img src="./src/imgs/login.png" alt="Minha Imagem">
 
